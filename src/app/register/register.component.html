@@ -1,0 +1,17 @@
+<div class="fb-background">
+  <div class="fb-container">
+    <div class="fb-left">
+      <h1 class="logo">DORIAN Y SUS JUEGOS</h1>
+      <p>Conéctate con tus juegos favoritos y descubre nuevas aventuras.</p>
+    </div>
+
+    <div class="fb-right">
+      <form (ngSubmit)="registrar()">
+        <input type="text" placeholder="Correo electrónico o usuario" [(ngModel)]="usuario" name="usuario" required />
+        <input type="password" placeholder="Contraseña" [(ngModel)]="password" name="password" required />
+        <button type="submit">Iniciar sesión</button>
+        <p class="registro">¿Nuevo? <a href="#">Crear cuenta</a></p>
+      </form>
+    </div>
+  </div>
+</div>

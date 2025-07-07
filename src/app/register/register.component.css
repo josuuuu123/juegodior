@@ -1,0 +1,89 @@
+.fb-background {
+  background-image: url('/figma.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+.fb-container {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 15px;
+  max-width: 900px;
+  width: 90%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  flex-wrap: wrap;
+}
+
+.fb-left {
+  flex: 1;
+  padding: 20px;
+  min-width: 250px;
+}
+
+.logo {
+  color: #1877f2;
+  font-size: 48px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.fb-left p {
+  font-size: 20px;
+  margin-top: 20px;
+  color: #333;
+}
+
+.fb-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 250px;
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+button {
+  background-color: #1877f2;
+  color: white;
+  padding: 12px;
+  border: none;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #155cbd;
+}
+
+.registro {
+  text-align: center;
+  font-size: 14px;
+}
+
+.registro a {
+  color: #1877f2;
+  text-decoration: none;
+  font-weight: bold;
+}

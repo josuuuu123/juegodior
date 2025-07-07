@@ -1,0 +1,9 @@
+<div class="home-background">
+  <div class="card-container">
+    <div class="card" *ngFor="let juego of juegos">
+      <img [src]="juego.imagen" alt="{{ juego.nombre }}" />
+      <h3>{{ juego.nombre }}</h3>
+      <button (click)="iniciarJuego(juego.nombre)">Iniciar</button>
+    </div>
+  </div>
+</div>
