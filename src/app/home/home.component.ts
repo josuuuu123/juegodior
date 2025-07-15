@@ -12,15 +12,15 @@ export class HomeComponent {
   juegos = [
     {
       nombre: 'Snake',
-      imagen: '/figma.jpg'
+      imagen: '/snakei.jpg'
     },
     {
       nombre: 'Puzzle',
-      imagen: '/figma.jpg'
+      imagen: '/rompecabezas.jpg'
     },
     {
-      nombre: 'Memoria',
-      imagen: '/figma.jpg'
+      nombre: 'Parejas',
+      imagen: '/Parejasi.jpg'
     },
     {
       nombre: 'Mario',
@@ -28,7 +28,7 @@ export class HomeComponent {
     },
     {
       nombre: 'Tetris',
-      imagen: '/figma.jpg'
+      imagen: '/bloquesi.jpg'
     }
   ];
 
