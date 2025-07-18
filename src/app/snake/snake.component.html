@@ -1,0 +1,136 @@
+<div class="snake-game star-bg">
+  <div class="game-header">
+    <button class="home-btn-3d" (click)="goHome()">← Volver al Inicio</button>
+    <h1>Snake Clásico</h1>
+  </div>
+
+  <div id="game-container">
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        gap: 32px;
+        align-items: flex-start;
+        justify-content: center;
+      "
+    >
+      <div style="flex: 0 0 auto">
+        <div id="score-container">
+          Puntuación: <span id="score">0</span> | Máximo:
+          <span id="high-score">0</span>
+        </div>
+        <canvas id="game-canvas" width="400" height="400"></canvas>
+        <div id="start-screen">
+          <h1 class="screen-title">SNAKE</h1>
+          <p class="screen-text">
+            Usa las flechas del teclado para mover la serpiente
+          </p>
+          <button class="btn" (click)="startGame()">COMENZAR</button>
+          <div class="controls">↑ ↓ ← → para mover | ESPACIO para pausar</div>
+        </div>
+        <div id="game-over-screen">
+          <h1 class="screen-title">GAME OVER</h1>
+          <p class="screen-text">
+            Tu puntuación: <span id="final-score">0</span>
+          </p>
+          <p class="screen-text">
+            Máxima puntuación: <span id="final-high-score">0</span>
+          </p>
+          <button class="btn" (click)="startGame()">JUGAR DE NUEVO</button>
+          <button class="btn home-btn-game-over home-btn-3d" (click)="goHome()">
+            VOLVER AL INICIO
+          </button>
+        </div>
+      </div>
+      <div
+        style="
+          flex: 0 0 220px;
+          background: rgba(20, 20, 30, 0.85);
+          border-radius: 16px;
+          box-shadow: 0 2px 16px #0006;
+          padding: 18px 12px;
+          min-height: 320px;
+        "
+      >
+        <h2
+          style="
+            color: #ffd700;
+            font-size: 1.3em;
+            margin-bottom: 14px;
+            text-align: center;
+            letter-spacing: 1px;
+            text-shadow: 0 0 8px #4caf50;
+          "
+        >
+          <span style="font-size: 1.3em; vertical-align: middle">🏆</span>
+          Scores Altos
+        </h2>
+        <table
+          style="
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            color: #fff;
+            font-family: 'Courier New', monospace;
+            border: 2px solid #388e3c;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px #388e3c55;
+            background: rgba(34, 40, 60, 0.95);
+          "
+        >
+          <thead>
+            <tr
+              style="
+                background: linear-gradient(90deg, #388e3c 60%, #4caf50 100%);
+                color: #fff;
+              "
+            >
+              <th
+                style="
+                  padding: 8px;
+                  border-radius: 8px 8px 0 0;
+                  font-weight: bold;
+                "
+              >
+                #
+              </th>
+              <th style="padding: 8px; font-weight: bold">Jugador</th>
+              <th style="padding: 8px; font-weight: bold">Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="let score of highScores; let i = index"
+              [ngStyle]="{
+                background: i === 0 ? 'rgba(255,215,0,0.12)' : '',
+                'font-weight': i === 0 ? 'bold' : '',
+                transition: 'background 0.2s'
+              }"
+            >
+<td
+  style="padding:8px; text-align:center;"
+  [style.color]="i === 0 ? '#ffd700' : '#fff'"
+  [style.fontSize]="i === 0 ? '1.1em' : '1em'"
+>
+  <span *ngIf="i === 0">🏆</span> {{ i + 1 }}
+</td>
+<td
+  style="padding:8px;"
+  [style.color]="i === 0 ? '#ffd700' : '#fff'"
+>
+  {{ score.name }}
+</td>
+<td
+  style="padding:8px; text-align:center;"
+  [style.color]="i === 0 ? '#ffd700' : '#fff'"
+>
+  {{ score.value }}
+</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

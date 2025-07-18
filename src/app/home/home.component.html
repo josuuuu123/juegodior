@@ -1,9 +1,13 @@
-<div class="home-background">
+hora<div class="fb-background"></div>
+<div class="fb-container home-grid">
+  <h1 class="logo">FUSIÓN DE MUNDOS</h1>
+  <h2 class="subtitle">Elige tu juego y explora nuevas galaxias</h2>
+
   <div class="card-container">
-    <div class="card" *ngFor="let juego of juegos">
-      <img [src]="juego.imagen" alt="{{ juego.nombre }}" />
-      <h3>{{ juego.nombre }}</h3>
-      <button (click)="iniciarJuego(juego.nombre)">Iniciar</button>
+    <div *ngFor="let juego of juegos" class="game-card">
+      <img class="game-image" [src]="juego.imagen" [alt]="juego.nombre" />
+      <h3 class="game-title">{{ juego.nombre }}</h3>
+      <button class="game-button" (click)="iniciarJuego(juego.nombre)">Iniciar</button>
     </div>
   </div>
 </div>

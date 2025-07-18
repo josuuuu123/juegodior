@@ -1,0 +1,317 @@
+<div class="tetris-container">
+  <div class="game-header">
+    <button class="home-btn" (click)="goHome()">← Volver al Inicio</button>
+    <h1>Tetris</h1>
+  </div>
+
+  <div class="game-info">
+    <div class="score">Puntaje: <span id="score">0</span></div>
+    <div class="progress">Progreso: <span id="percentage">0%</span></div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+  </div>
+
+  <div
+    style="
+      display: flex;
+      flex-direction: row;
+      gap: 32px;
+      align-items: flex-start;
+      justify-content: center;
+    "
+  >
+    <div style="flex: 0 0 auto">
+      <div
+        style="
+          display: flex;
+          flex-direction: row;
+          gap: 24px;
+          align-items: flex-start;
+        "
+      >
+        <div
+          class="controls-box"
+          style="
+            flex: 0 0 220px;
+            background: rgba(20, 20, 30, 0.85);
+            border-radius: 16px;
+            box-shadow: 0 2px 16px #0006;
+            padding: 18px 12px;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+          "
+        >
+          <div
+            style="
+              font-size: 1.1em;
+              font-weight: bold;
+              color: #4caf50;
+              margin-bottom: 12px;
+              text-shadow: 0 2px 8px #388e3c88;
+            "
+          >
+            Controles
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 0;
+              align-items: stretch;
+              width: 100%;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 12px;
+                padding: 6px 0;
+              "
+            >
+              <span
+                class="control-3d-text"
+                style="font-size: 1em; min-width: 60px; text-align: left"
+                >← →</span
+              >
+              <span style="font-size: 0.85em; color: #fff">Mover</span>
+            </div>
+            <hr
+              style="
+                border: none;
+                border-top: 1px solid #388e3c44;
+                margin: 0 0 0 0;
+              "
+            />
+            <div
+              style="
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 12px;
+                padding: 6px 0;
+              "
+            >
+              <span
+                class="control-3d-text"
+                style="font-size: 1em; min-width: 60px; text-align: left"
+                >↓</span
+              >
+              <span style="font-size: 0.85em; color: #fff">Bajar rápido</span>
+            </div>
+            <hr
+              style="
+                border: none;
+                border-top: 1px solid #388e3c44;
+                margin: 0 0 0 0;
+              "
+            />
+            <div
+              style="
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 12px;
+                padding: 6px 0;
+              "
+            >
+              <span
+                class="control-3d-text"
+                style="font-size: 1em; min-width: 60px; text-align: left"
+                >Q/W</span
+              >
+              <span style="font-size: 0.85em; color: #fff">Rotar</span>
+            </div>
+            <hr
+              style="
+                border: none;
+                border-top: 1px solid #388e3c44;
+                margin: 0 0 0 0;
+              "
+            />
+            <div
+              style="
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 12px;
+                padding: 6px 0;
+              "
+            >
+              <span
+                class="control-3d-text"
+                style="font-size: 1em; min-width: 60px; text-align: left"
+                >Espacio</span
+              >
+              <span style="font-size: 0.85em; color: #fff">Rotar</span>
+            </div>
+            <hr
+              style="
+                border: none;
+                border-top: 1px solid #388e3c44;
+                margin: 0 0 0 0;
+              "
+            />
+            <div
+              style="
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 12px;
+                padding: 6px 0;
+              "
+            >
+              <span
+                class="control-3d-text"
+                style="font-size: 1em; min-width: 60px; text-align: left"
+                >Esc</span
+              >
+              <span style="font-size: 0.85em; color: #fff">Salir</span>
+            </div>
+          </div>
+        </div>
+        <div class="game-area" style="position: relative">
+          <div id="game-over">
+            <div
+              class="game-over-content"
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 260px;
+              "
+            >
+              <h2 style="margin-bottom: 36px; text-align: center; width: 100%">
+                ¡Juego terminado!
+              </h2>
+              <div
+                style="
+                  display: flex;
+                  flex-direction: row;
+                  gap: 32px;
+                  justify-content: center;
+                  width: 100%;
+                "
+              >
+                <button
+                  class="restart-btn"
+                  style="margin: 0 12px; min-width: 140px"
+                  (click)="restartGame()"
+                >
+                  Jugar de nuevo
+                </button>
+                <button
+                  class="home-btn"
+                  style="margin: 0 12px; min-width: 140px"
+                  (click)="goHome()"
+                >
+                  Volver al inicio
+                </button>
+              </div>
+            </div>
+          </div>
+          <canvas id="tetris" width="240" height="400"></canvas>
+        </div>
+      </div>
+    </div>
+    <div
+      style="
+        flex: 0 0 220px;
+        background: rgba(20, 20, 30, 0.85);
+        border-radius: 16px;
+        box-shadow: 0 2px 16px #0006;
+        padding: 18px 12px;
+        min-height: 320px;
+      "
+    >
+      <h2
+        style="
+          color: #ffd700;
+          font-size: 1.3em;
+          margin-bottom: 14px;
+          text-align: center;
+          letter-spacing: 1px;
+          text-shadow: 0 0 8px #4caf50;
+        "
+      >
+        <span style="font-size: 1.3em; vertical-align: middle">🏆</span>
+        Scores Altos
+      </h2>
+      <table
+        style="
+          width: 100%;
+          border-collapse: separate;
+          border-spacing: 0;
+          color: #fff;
+          font-family: 'Courier New', monospace;
+          border: 2px solid #388e3c;
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow: 0 2px 12px #388e3c55;
+          background: rgba(34, 40, 60, 0.95);
+        "
+      >
+        <thead>
+          <tr
+            style="
+              background: linear-gradient(90deg, #388e3c 60%, #4caf50 100%);
+              color: #fff;
+            "
+          >
+            <th
+              style="
+                padding: 8px;
+                border-radius: 8px 8px 0 0;
+                font-weight: bold;
+              "
+            >
+              #
+            </th>
+            <th style="padding: 8px; font-weight: bold">Jugador</th>
+            <th style="padding: 8px; font-weight: bold">Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let score of highScores; let i = index"
+            [ngStyle]="{
+              background: i === 0 ? 'rgba(255,215,0,0.12)' : '',
+              'font-weight': i === 0 ? 'bold' : '',
+              transition: 'background 0.2s'
+            }"
+          >
+            <td
+              style="padding: 8px; text-align: center"
+              [style.color]="i === 0 ? '#ffd700' : '#fff'"
+              [style.fontSize]="i === 0 ? '1.1em' : '1em'"
+            >
+              <span *ngIf="i === 0">🏆</span> {{ i + 1 }}
+            </td>
+            <td
+              style="padding: 8px"
+              [style.color]="i === 0 ? '#ffd700' : '#fff'"
+            >
+              {{ score.name }}
+            </td>
+            <td
+              style="padding: 8px; text-align: center"
+              [style.color]="i === 0 ? '#ffd700' : '#fff'"
+            >
+              {{ score.value }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,276 @@
+.parejas-container {
+  min-height: 100vh;
+  background: transparent;
+  box-shadow: 0 0 40px 0 #000a;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 1rem;
+}
+
+.game-header h1 {
+  color: #4caf50;
+  text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0;
+}
+
+.home-btn {
+  background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+  color: #fff;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  box-shadow: 0 10px 32px 0 #388e3cbb, 0 2px 0 #fff4 inset, 0 2px 0 #0006,
+    0 0 24px #4caf5088;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+  perspective: 400px;
+}
+
+.home-btn:hover {
+  background: linear-gradient(135deg, #66ff99 0%, #388e3c 100%);
+  transform: translateY(-12px) scale(1.12) rotateX(24deg);
+  box-shadow: 0 24px 64px #388e3cdd, 0 4px 0 #fff4 inset, 0 4px 0 #0008,
+    0 0 32px #4caf50cc;
+}
+
+.game-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+  background: rgba(20, 20, 30, 0.85);
+  padding: 1rem;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px #0006;
+}
+
+.info-box {
+  text-align: center;
+  flex: 1;
+}
+
+.info-label {
+  font-size: 0.9rem;
+  color: #388e3c;
+  margin-bottom: 0.3rem;
+}
+
+.info-value {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #ffd700;
+}
+
+.memory-game {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 600px;
+  width: 100%;
+  perspective: 1000px;
+}
+
+.memory-card {
+  width: 100%;
+  aspect-ratio: 1/1;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.memory-card:active {
+  transform: scale(0.97);
+}
+
+.memory-card.flip {
+  transform: rotateY(180deg);
+  pointer-events: none;
+}
+
+.memory-card.matched {
+  pointer-events: none;
+  background: linear-gradient(135deg, #b9f6ca 0%, #69f0ae 100%);
+  box-shadow: 0 0 24px #69f0ae, 0 0 8px #27ae60;
+  /* Carta fallida: rojo suave */
+  .memory-card.failed {
+    background: linear-gradient(135deg, #ffcdd2 0%, #ff8a80 100%);
+    box-shadow: 0 0 24px #ff8a80, 0 0 8px #e57373;
+  }
+}
+
+.front-face,
+.back-face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  user-select: none;
+}
+
+.front-face {
+  background: linear-gradient(135deg, #90a4ae 0%, #b0bec5 100%);
+  color: #263238;
+  transform: rotateY(180deg);
+}
+
+.back-face {
+  background: #3498db;
+  color: white;
+}
+
+.controls {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.controls button {
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  box-shadow: 0 10px 32px 0 #388e3cbb, 0 2px 0 #fff4 inset, 0 2px 0 #0006,
+    0 0 24px #4caf5088;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+  perspective: 400px;
+}
+
+.controls button:hover {
+  background: linear-gradient(135deg, #66ff99 0%, #388e3c 100%);
+  transform: translateY(-12px) scale(1.12) rotateX(24deg);
+  box-shadow: 0 24px 64px #388e3cdd, 0 4px 0 #fff4 inset, 0 4px 0 #0008,
+    0 0 32px #4caf50cc;
+}
+
+.controls button:active {
+  transform: translateY(0);
+}
+
+.win-message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  color: white;
+  text-align: center;
+}
+
+.win-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  color: #2c3e50;
+  max-width: 500px;
+  width: 90%;
+}
+
+.win-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #27ae60;
+}
+
+.win-content p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.win-stats {
+  display: flex;
+  justify-content: space-around;
+  margin: 1.5rem 0;
+}
+
+.win-content button {
+  padding: 0.8rem 1.5rem;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.win-content button:hover {
+  background: #219a52;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .memory-game {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .front-face,
+  .back-face {
+    font-size: 2rem;
+  }
+
+  .game-header h1 {
+    font-size: 2rem;
+  }
+
+  .game-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .controls {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.celebrate {
+  animation: bounce 0.5s ease infinite;
+}

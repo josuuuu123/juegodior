@@ -1,0 +1,66 @@
+<div class="parejas-container">
+  <div class="game-header">
+    <h1>Juego de Memoria</h1>
+    <button class="home-btn" (click)="goHome()">🏠 Inicio</button>
+  </div>
+
+  <div class="game-info">
+    <div class="info-box">
+      <div class="info-label">Movimientos</div>
+      <div class="info-value">{{ moves }}</div>
+    </div>
+    <div class="info-box">
+      <div class="info-label">Tiempo</div>
+      <div class="info-value">{{ getFormattedTime() }}</div>
+    </div>
+    <div class="info-box">
+      <div class="info-label">Parejas</div>
+      <div class="info-value">{{ getPairsText() }}</div>
+    </div>
+  </div>
+
+  <div class="memory-game">
+    <div
+      *ngFor="let card of cards; trackBy: trackByIndex"
+      class="memory-card"
+      [class.flip]="card.flipped"
+      [class.matched]="card.matched"
+      [class.celebrate]="card.matched && gameWon"
+      (click)="flipCard(card)"
+    >
+      <div class="front-face">
+        {{ card.emoji }}
+      </div>
+      <div class="back-face">?</div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button (click)="restartGame()">Reiniciar</button>
+    <button (click)="newGame()">Nuevo Juego</button>
+  </div>
+
+  <!-- Mensaje de victoria/derrota -->
+  <div class="win-message" *ngIf="showWinMessage">
+    <div class="win-content">
+      <h2 *ngIf="gameWon">¡Felicidades! 🎉</h2>
+      <h2 *ngIf="gameLost">¡Juego terminado!</h2>
+
+      <p *ngIf="gameWon">Has completado el juego de memoria</p>
+      <p *ngIf="gameLost">Lo siento, has superado el límite de movimientos.</p>
+
+      <div class="win-stats">
+        <div>
+          <div class="info-label">Movimientos</div>
+          <div class="info-value">{{ moves }}</div>
+        </div>
+        <div>
+          <div class="info-label">Tiempo</div>
+          <div class="info-value">{{ getFormattedTime() }}</div>
+        </div>
+      </div>
+
+      <button (click)="playAgain()">Jugar de nuevo</button>
+    </div>
+  </div>
+</div>

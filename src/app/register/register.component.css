@@ -1,23 +1,205 @@
+/* Fondo estrellado 3D - Pantalla completa */
 .fb-background {
-  background-image: url('/22222.jpg');
-  background-size: cover;
-  background-position: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
   height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  z-index: 1;
 }
 
+/* Capa de estrellas animadas - Mejoradas con más brillo */
+.fb-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  background-image: 
+    radial-gradient(3px 3px at 20px 30px, #fff, rgba(255,255,255,0.8) 30%, transparent 70%),
+    radial-gradient(2px 2px at 40px 70px, #e6f3ff, rgba(230,243,255,0.6) 40%, transparent 80%),
+    radial-gradient(4px 4px at 90px 40px, #fff, rgba(255,255,255,0.9) 20%, transparent 60%),
+    radial-gradient(1px 1px at 130px 80px, #b3d9ff, rgba(179,217,255,0.7) 50%, transparent 90%),
+    radial-gradient(3px 3px at 160px 30px, #fff, rgba(255,255,255,0.8) 30%, transparent 70%),
+    radial-gradient(2px 2px at 180px 90px, #cce6ff, rgba(204,230,255,0.5) 60%, transparent),
+    radial-gradient(1px 1px at 50px 120px, #fff, rgba(255,255,255,0.9) 40%, transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: sparkle 20s linear infinite, starTwinkle 3s ease-in-out infinite;
+  z-index: 1;
+}
+
+/* Capa de estrellas más grandes y brillantes */
+.fb-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  background-image: 
+    radial-gradient(5px 5px at 100px 50px, #fff, rgba(255,255,255,0.9) 20%, rgba(255,255,255,0.5) 40%, transparent 80%),
+    radial-gradient(4px 4px at 200px 100px, #e6f3ff, rgba(230,243,255,0.7) 30%, transparent 70%),
+    radial-gradient(3px 3px at 300px 25px, #fff, rgba(255,255,255,0.8) 35%, transparent 75%),
+    radial-gradient(6px 6px at 400px 75px, #cce6ff, rgba(204,230,255,0.6) 25%, transparent 60%),
+    radial-gradient(2px 2px at 350px 150px, #fff, rgba(255,255,255,0.9) 40%, transparent 85%),
+    radial-gradient(4px 4px at 50px 200px, #b3d9ff, rgba(179,217,255,0.7) 30%, transparent 70%);
+  background-repeat: repeat;
+  background-size: 500px 200px;
+  animation: sparkle 30s linear infinite reverse, starPulse 4s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes sparkle {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-100px) rotate(360deg); }
+}
+
+/* Nuevas animaciones para estrellas más detalladas */
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.6; filter: brightness(1); }
+  25% { opacity: 0.9; filter: brightness(1.3); }
+  50% { opacity: 1; filter: brightness(1.5); }
+  75% { opacity: 0.8; filter: brightness(1.2); }
+}
+
+@keyframes starPulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+/* Efecto de brillo pulsante mejorado */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* Partículas flotantes mejoradas */
+.stars-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.star {
+  position: absolute;
+  background: radial-gradient(circle, #fff 0%, rgba(255,255,255,0.9) 30%, rgba(255,255,255,0.5) 60%, transparent 100%);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite, starGlow 2s ease-in-out infinite;
+  box-shadow: 0 0 6px rgba(255,255,255,0.8), 0 0 12px rgba(255,255,255,0.4);
+}
+
+.star:nth-child(1) { 
+  width: 4px; height: 4px; 
+  top: 20%; left: 10%; 
+  animation-delay: 0s; 
+  box-shadow: 0 0 8px rgba(255,255,255,0.9), 0 0 15px rgba(135,206,235,0.5);
+}
+.star:nth-child(2) { 
+  width: 5px; height: 5px; 
+  top: 40%; left: 30%; 
+  animation-delay: 1s; 
+  box-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(230,243,255,0.6);
+}
+.star:nth-child(3) { 
+  width: 3px; height: 3px; 
+  top: 60%; left: 70%; 
+  animation-delay: 2s; 
+  box-shadow: 0 0 6px rgba(255,255,255,0.7), 0 0 12px rgba(204,230,255,0.4);
+}
+.star:nth-child(4) { 
+  width: 4px; height: 4px; 
+  top: 30%; left: 80%; 
+  animation-delay: 3s; 
+  box-shadow: 0 0 8px rgba(255,255,255,0.9), 0 0 16px rgba(179,217,255,0.5);
+}
+.star:nth-child(5) { 
+  width: 6px; height: 6px; 
+  top: 70%; left: 20%; 
+  animation-delay: 4s; 
+  box-shadow: 0 0 12px rgba(255,255,255,1), 0 0 24px rgba(135,206,235,0.7);
+}
+.star:nth-child(6) { 
+  width: 2px; height: 2px; 
+  top: 15%; left: 50%; 
+  animation-delay: 5s; 
+  box-shadow: 0 0 4px rgba(255,255,255,0.6), 0 0 8px rgba(230,243,255,0.3);
+}
+.star:nth-child(7) { 
+  width: 4px; height: 4px; 
+  top: 85%; left: 60%; 
+  animation-delay: 2.5s; 
+  box-shadow: 0 0 8px rgba(255,255,255,0.8), 0 0 16px rgba(204,230,255,0.5);
+}
+.star:nth-child(8) { 
+  width: 5px; height: 5px; 
+  top: 50%; left: 90%; 
+  animation-delay: 1.5s; 
+  box-shadow: 0 0 10px rgba(255,255,255,0.9), 0 0 20px rgba(179,217,255,0.6);
+}
+.star:nth-child(9) { 
+  width: 3px; height: 3px; 
+  top: 25%; left: 65%; 
+  animation-delay: 0.8s; 
+  box-shadow: 0 0 6px rgba(255,255,255,0.8), 0 0 12px rgba(204,230,255,0.5);
+}
+.star:nth-child(10) { 
+  width: 4px; height: 4px; 
+  top: 75%; left: 45%; 
+  animation-delay: 3.2s; 
+  box-shadow: 0 0 8px rgba(255,255,255,0.9), 0 0 16px rgba(135,206,235,0.4);
+}
+.star:nth-child(11) { 
+  width: 2px; height: 2px; 
+  top: 35%; left: 25%; 
+  animation-delay: 4.7s; 
+  box-shadow: 0 0 4px rgba(255,255,255,0.7), 0 0 8px rgba(230,243,255,0.3);
+}
+.star:nth-child(12) { 
+  width: 6px; height: 6px; 
+  top: 55%; left: 15%; 
+  animation-delay: 2.1s; 
+  box-shadow: 0 0 12px rgba(255,255,255,1), 0 0 24px rgba(179,217,255,0.7);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) scale(1); opacity: 0.7; }
+  50% { transform: translateY(-10px) scale(1.1); opacity: 1; }
+}
+
+/* Nueva animación de brillo para estrellas */
+@keyframes starGlow {
+  0%, 100% { filter: brightness(1) drop-shadow(0 0 5px rgba(255,255,255,0.5)); }
+  50% { filter: brightness(1.4) drop-shadow(0 0 10px rgba(255,255,255,0.8)); }
+}
+
+/* Contenedor principal - SIN efectos que distorsionen */
 .fb-container {
+  position: relative;
   display: flex;
-  background-color: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 40px;
-  border-radius: 15px;
+  border-radius: 20px;
   max-width: 900px;
   width: 90%;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   flex-wrap: wrap;
+  z-index: 10;
 }
 
 .fb-left {
@@ -27,16 +209,19 @@
 }
 
 .logo {
-  color: #1877f2;
+  color: #fff;
   font-size: 48px;
-  font-weight: bold;
+  font-weight: 700;
   margin: 0;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .fb-left p {
   font-size: 20px;
   margin-top: 20px;
-  color: #333;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1.5;
 }
 
 .fb-right {
@@ -46,44 +231,380 @@
   justify-content: center;
   min-width: 250px;
   padding: 20px;
+  position: relative;
+  z-index: 1000;
+  pointer-events: auto;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
+  position: relative;
+  z-index: 1000;
+  pointer-events: auto;
 }
 
 input {
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
   font-size: 16px;
+  color: #fff;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1000;
+  pointer-events: auto;
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+input:focus {
+  outline: none;
+  border-color: rgba(83, 52, 131, 0.8);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 15px rgba(83, 52, 131, 0.4);
+  z-index: 1001;
 }
 
 button {
-  background-color: #1877f2;
+  background: linear-gradient(135deg, #533483 0%, #1a1a2e 100%);
   color: white;
-  padding: 12px;
+  padding: 15px;
   border: none;
   font-weight: bold;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
   font-size: 16px;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(83, 52, 131, 0.3);
+  z-index: 1000;
+  pointer-events: auto;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+button:hover::before {
+  left: 100%;
 }
 
 button:hover {
-  background-color: #155cbd;
+  background: linear-gradient(135deg, #6a4c93 0%, #2a2a3e 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(83, 52, 131, 0.5);
+}
+
+button:active {
+  transform: translateY(0);
 }
 
 .registro {
   text-align: center;
   font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 10px;
 }
 
 .registro a {
-  color: #1877f2;
+  color: #fff;
   text-decoration: none;
   font-weight: bold;
+  text-shadow: 0 0 5px rgba(83, 52, 131, 0.8);
+  transition: all 0.3s ease;
+}
+
+.registro a:hover {
+  text-shadow: 0 0 10px rgba(83, 52, 131, 1);
+  color: #e0e0e0;
+}
+
+/* Animaciones para alertas cósmicas */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Efectos de profundidad 3D */
+.fb-container {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.fb-left, .fb-right {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.fb-container:hover .fb-left {
+  transform: rotateY(-2deg) translateZ(10px);
+}
+
+.fb-container:hover .fb-right {
+  transform: rotateY(2deg) translateZ(10px);
+}
+
+/* Partículas de fondo adicionales */
+.cosmic-dust {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  animation: cosmicDrift 15s linear infinite;
+}
+
+@keyframes cosmicDrift {
+  0% {
+    transform: translate(0, 100vh) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100px, -100px) scale(1);
+    opacity: 0;
+  }
+}
+
+/* Efectos de galaxia espiral */
+.galaxy-spiral {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  margin: -100px 0 0 -100px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(83, 52, 131, 0.1) 0%, transparent 70%);
+  animation: galaxyRotate 20s linear infinite;
+  z-index: 1;
+}
+
+@keyframes galaxyRotate {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+/* Efectos de aurora boreal */
+.aurora {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, 
+    rgba(83, 52, 131, 0.1) 0%,
+    rgba(22, 33, 62, 0.1) 25%,
+    rgba(15, 52, 96, 0.1) 50%,
+    rgba(83, 52, 131, 0.1) 75%,
+    transparent 100%
+  );
+  animation: auroraWave 12s ease-in-out infinite;
+  z-index: 2;
+}
+
+@keyframes auroraWave {
+  0%, 100% { 
+    transform: translateX(-50px) scale(1);
+    opacity: 0.3;
+  }
+  50% { 
+    transform: translateX(50px) scale(1.1);
+    opacity: 0.6;
+  }
+}
+
+/* Efectos de resplandor para dispositivos móviles */
+@media (max-width: 768px) {
+  .fb-container {
+    margin: 20px;
+    padding: 30px;
+    max-width: 95%;
+  }
+  
+  .logo {
+    font-size: 36px;
+  }
+  
+  .fb-left p {
+    font-size: 18px;
+  }
+  
+  .fb-left, .fb-right {
+    min-width: 100%;
+  }
+  
+  .star {
+    animation-duration: 8s;
+  }
+}
+
+/* Efectos de partículas flotantes mejoradas */
+@media (prefers-reduced-motion: no-preference) {
+  .shooting-star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: radial-gradient(circle, #fff 0%, rgba(255,255,255,0.8) 40%, transparent 100%);
+    border-radius: 50%;
+    animation: shootingStar 3s linear infinite;
+    box-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(135,206,235,0.4);
+  }
+  
+  .shooting-star::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+    transform: translate(-50%, -50%) rotate(45deg);
+    animation: shootingTail 3s linear infinite;
+  }
+  
+  .shooting-star:nth-child(1) {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+  
+  .shooting-star:nth-child(2) {
+    top: 30%;
+    left: 80%;
+    animation-delay: 1s;
+  }
+  
+  .shooting-star:nth-child(3) {
+    top: 70%;
+    left: 20%;
+    animation-delay: 2s;
+  }
+  
+  .shooting-star:nth-child(4) {
+    top: 15%;
+    left: 60%;
+    animation-delay: 0.5s;
+  }
+  
+  .shooting-star:nth-child(5) {
+    top: 80%;
+    left: 70%;
+    animation-delay: 2.5s;
+  }
+}
+
+@keyframes shootingStar {
+  0% {
+    transform: translate(0, 0) scale(0);
+    opacity: 0;
+  }
+  10% {
+    transform: translate(10px, -10px) scale(1);
+    opacity: 1;
+  }
+  90% {
+    transform: translate(300px, -300px) scale(0.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(400px, -400px) scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes shootingTail {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(45deg) scaleX(0);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(45deg) scaleX(1);
+  }
+  90% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) rotate(45deg) scaleX(0.5);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(45deg) scaleX(0);
+  }
+}
+
+/* Nebulosa de fondo */
+.nebula {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, rgba(83, 52, 131, 0.1) 0%, transparent 70%);
+  animation: nebulaPulse 8s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes nebulaPulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.1); }
+}
+
+/* Superposición de navegación mejorada */
+.nav-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1px);
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.fb-container:hover .nav-overlay {
+  opacity: 1;
 }

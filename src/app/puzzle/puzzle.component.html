@@ -1,0 +1,28 @@
+<div class="puzzle-game">
+  <div class="game-header">
+    <button class="home-btn" (click)="goHome()">← Volver al Inicio</button>
+    <h1>Rompecabezas de Deslizamiento</h1>
+  </div>
+
+  <div class="container">
+    <div class="game-info">
+      <div class="moves">Movimientos: <span id="move-count">0</span></div>
+      <div class="timer">Tiempo: <span id="time">00:00</span></div>
+    </div>
+    <div class="puzzle-container">
+      <div
+        *ngFor="let value of board; let i = index"
+        class="tile"
+        [ngClass]="{ empty: value === 0 }"
+        (click)="value !== 0 && gameActive ? moveTile(i, true) : null"
+      >
+        {{ value !== 0 ? value : "" }}
+      </div>
+    </div>
+    <div class="win-message">¡Has ganado! 🎉</div>
+    <div class="lose-message">
+      ¡Juego terminado! Has superado el límite de movimientos. 😞
+    </div>
+    <button class="reset-btn" (click)="resetGame()">Reiniciar Juego</button>
+  </div>
+</div>

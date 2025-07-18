@@ -1,16 +1,69 @@
 <div class="fb-background">
+  <div class="nebula"></div>
+
+  <div class="aurora"></div>
+
+  <div class="stars-container">
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+
+    <div class="cosmic-dust" style="left: 10%; animation-delay: 0s"></div>
+    <div class="cosmic-dust" style="left: 30%; animation-delay: 3s"></div>
+    <div class="cosmic-dust" style="left: 50%; animation-delay: 6s"></div>
+    <div class="cosmic-dust" style="left: 70%; animation-delay: 9s"></div>
+    <div class="cosmic-dust" style="left: 90%; animation-delay: 12s"></div>
+    <div class="cosmic-dust" style="left: 15%; animation-delay: 15s"></div>
+    <div class="cosmic-dust" style="left: 45%; animation-delay: 18s"></div>
+    <div class="cosmic-dust" style="left: 75%; animation-delay: 21s"></div>
+  </div>
+
   <div class="fb-container">
     <div class="fb-left">
       <h1 class="logo">FUSIÓN DE MUNDOS</h1>
-      <p>Conéctate con tus juegos favoritos y descubre nuevas aventuras.</p>
+      <p>
+        Conéctate con tus juegos favoritos y descubre nuevas aventuras en un
+        universo de estrellas infinitas donde cada nivel es una nueva galaxia
+        por explorar.
+      </p>
     </div>
 
     <div class="fb-right">
       <form (ngSubmit)="registrar()">
-        <input type="text" placeholder="Correo electrónico o usuario" [(ngModel)]="usuario" name="usuario" required />
-        <input type="password" placeholder="Contraseña" [(ngModel)]="password" name="password" required />
-        <button type="submit">Iniciar sesión</button>
-        <p class="registro">¿Nuevo? <a href="#">Crear cuenta</a></p>
+        <input
+          type="text"
+          placeholder="✨ Correo electrónico o usuario"
+          [(ngModel)]="usuario"
+          name="usuario"
+          required
+        />
+        <input
+          type="password"
+          placeholder="🔒 Contraseña"
+          [(ngModel)]="password"
+          name="password"
+          required
+        />
+        <button type="submit">🚀 Iniciar sesión</button>
+        <p class="registro">
+          ¿Nuevo en el cosmos?
+          <a href="#" (click)="$event.preventDefault()">Crear cuenta</a>
+        </p>
       </form>
     </div>
   </div>
