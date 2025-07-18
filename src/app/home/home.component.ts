@@ -27,11 +27,15 @@ export class HomeComponent {
     },
     {
       nombre: 'Mario',
-      imagen: '/22222.jpg'
+      imagen: '/2222.jpg'
     },
     {
       nombre: 'Tetris',
       imagen: '/bloquesi.jpg'
+    },
+    {
+      nombre: 'Moda',
+      imagen: '/kids.jpg' 
     }
   ];
 
@@ -39,24 +43,22 @@ export class HomeComponent {
     console.log('Iniciando juego:', nombre);
     switch (nombre.toLowerCase()) {
       case 'tetris':
-        console.log('Navegando a Tetris');
         this.router.navigate(['/tetris']);
         break;
       case 'puzzle':
-        console.log('Navegando a Puzzle');
         this.router.navigate(['/puzzle']);
         break;
       case 'snake':
-        console.log('Navegando a Snake');
         this.router.navigate(['/snake']);
         break;
       case 'parejas':
-        console.log('Navegando a Parejas');
         this.router.navigate(['/parejas']);
         break;
       case 'mario':
-        console.log('Navegando a Mario');
         this.router.navigate(['/mario']);
+        break;
+      case 'moda':
+        this.router.navigate(['/moda']);
         break;
       default:
         alert(`Iniciando ${nombre}...`);

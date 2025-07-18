@@ -2,9 +2,17 @@ hora<div class="fb-background"></div>
 <div class="fb-container home-grid">
   <h1 class="logo">FUSIÓN DE MUNDOS</h1>
   <h2 class="subtitle">Elige tu juego y explora nuevas galaxias</h2>
-
-  <div class="card-container">
-    <div *ngFor="let juego of juegos" class="game-card">
+  <div style="position: absolute; top: 24px; right: 24px; z-index: 1000;">
+    <audio id="home-audio" src="/music/register.mp3"autoplay loop></audio>
+    <div style="display: flex; gap: 10px; margin-top: 8px;">
+      <button class="btn-volumen-3d" style="box-shadow: 0 4px 16px #4caf50bb; border-radius: 16px; background: linear-gradient(135deg, #e0ffe0 0%, #4caf50 100%); color: #1b3c1b; font-weight: 700; font-size: 1.2rem; padding: 10px 24px; margin-bottom: 4px;" onclick="document.getElementById('home-audio').volume=Math.min(document.getElementById('home-audio').volume+0.1,1)">🔊 +</button>
+      <button class="btn-volumen-3d" style="box-shadow: 0 4px 16px #4caf50bb; border-radius: 16px; background: linear-gradient(135deg, #e0ffe0 0%, #4caf50 100%); color: #1b3c1b; font-weight: 700; font-size: 1.2rem; padding: 10px 24px; margin-bottom: 4px;" onclick="document.getElementById('home-audio').volume=Math.max(document.getElementById('home-audio').volume-0.1,0)">🔉 -</button>
+      <button class="btn-volumen-3d" style="box-shadow: 0 4px 16px #4caf50bb; border-radius: 16px; background: linear-gradient(135deg, #e0ffe0 0%, #4caf50 100%); color: #1b3c1b; font-weight: 700; font-size: 1.2rem; padding: 10px 24px; margin-bottom: 4px;" onclick="document.getElementById('home-audio').muted=true">🔇</button>
+      <button class="btn-volumen-3d" style="box-shadow: 0 4px 16px #4caf50bb; border-radius: 16px; background: linear-gradient(135deg, #e0ffe0 0%, #4caf50 100%); color: #1b3c1b; font-weight: 700; font-size: 1.2rem; padding: 10px 24px; margin-bottom: 4px;" onclick="document.getElementById('home-audio').muted=false">🔈</button>
+    </div>
+  </div>
+  <div class="card-container" style="display: flex; justify-content: center; align-items: center; margin-top: 32px;">
+    <div *ngFor="let juego of juegos" class="game-card" style="margin: 0 18px;">
       <img class="game-image" [src]="juego.imagen" [alt]="juego.nombre" />
       <h3 class="game-title">{{ juego.nombre }}</h3>
       <button class="game-button" (click)="iniciarJuego(juego.nombre)">Iniciar</button>

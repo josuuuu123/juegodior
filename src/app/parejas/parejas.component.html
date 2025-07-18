@@ -1,7 +1,30 @@
 <div class="parejas-container">
+  <div style="position: absolute; top: 24px; right: 24px; z-index: 1000;">
+    <audio id="parejas-audio" src="/music/pares.mp3" autoplay loop></audio>
+    <div style="display: flex; gap: 10px; margin-top: 8px;">
+      <button class="btn-volumen-3d"
+        style="box-shadow: 0 4px 16px #4caf50bb; border-radius: 16px; background: linear-gradient(135deg, #e0ffe0 0%, #4caf50 100%); color: #1b3c1b; font-weight: 700; font-size: 1.2rem; padding: 10px 24px; margin-bottom: 4px;"
+        onclick="document.getElementById('parejas-audio').volume=Math.min(document.getElementById('parejas-audio').volume+0.1,1)">🔊
+        +</button>
+      <button class="btn-volumen-3d"
+        style="box-shadow: 0 4px 16px #4caf50bb; border-radius: 16px; background: linear-gradient(135deg, #e0ffe0 0%, #4caf50 100%); color: #1b3c1b; font-weight: 700; font-size: 1.2rem; padding: 10px 24px; margin-bottom: 4px;"
+        onclick="document.getElementById('parejas-audio').volume=Math.max(document.getElementById('parejas-audio').volume-0.1,0)">🔉
+        -</button>
+      <button class="btn-volumen-3d"
+        style="box-shadow: 0 4px 16px #4caf50bb; border-radius: 16px; background: linear-gradient(135deg, #e0ffe0 0%, #4caf50 100%); color: #1b3c1b; font-weight: 700; font-size: 1.2rem; padding: 10px 24px; margin-bottom: 4px;"
+        onclick="document.getElementById('parejas-audio').muted=true">🔇</button>
+      <button class="btn-volumen-3d"
+        style="box-shadow: 0 4px 16px #4caf50bb; border-radius: 16px; background: linear-gradient(135deg, #e0ffe0 0%, #4caf50 100%); color: #1b3c1b; font-weight: 700; font-size: 1.2rem; padding: 10px 24px; margin-bottom: 4px;"
+        onclick="document.getElementById('parejas-audio').muted=false">🔈</button>
+    </div>
+  </div>
   <div class="game-header">
-    <h1>Juego de Memoria</h1>
-    <button class="home-btn" (click)="goHome()">🏠 Inicio</button>
+    <button class="home-btn-3d"
+      style="box-shadow: 0 4px 16px #4caf50bb; border-radius: 16px; background: linear-gradient(135deg, #e0ffe0 0%, #4caf50 100%); color: #1b3c1b; font-weight: 700; font-size: 1.3rem; padding: 12px 32px; text-shadow: 0 2px 8px #388e3c88;"
+      (click)="goHome()">🏠 Inicio</button>
+    <h1
+      style="color: #4caf50; margin: 0; font-weight: 600; font-size: 2.5em; text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);">
+      Juego de Memoria</h1>
   </div>
 
   <div class="game-info">
@@ -20,14 +43,8 @@
   </div>
 
   <div class="memory-game">
-    <div
-      *ngFor="let card of cards; trackBy: trackByIndex"
-      class="memory-card"
-      [class.flip]="card.flipped"
-      [class.matched]="card.matched"
-      [class.celebrate]="card.matched && gameWon"
-      (click)="flipCard(card)"
-    >
+    <div *ngFor="let card of cards; trackBy: trackByIndex" class="memory-card" [class.flip]="card.flipped"
+      [class.matched]="card.matched" [class.celebrate]="card.matched && gameWon" (click)="flipCard(card)">
       <div class="front-face">
         {{ card.emoji }}
       </div>

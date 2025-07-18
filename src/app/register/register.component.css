@@ -1,4 +1,4 @@
-/* Fondo estrellado 3D - Pantalla completa */
+
 .fb-background {
   position: fixed;
   top: 0;
@@ -14,7 +14,7 @@
   z-index: 1;
 }
 
-/* Capa de estrellas animadas - Mejoradas con más brillo */
+
 .fb-background::before {
   content: '';
   position: absolute;
@@ -37,7 +37,7 @@
   z-index: 1;
 }
 
-/* Capa de estrellas más grandes y brillantes */
+
 .fb-background::after {
   content: '';
   position: absolute;
@@ -64,7 +64,6 @@
   100% { transform: translateY(-100px) rotate(360deg); }
 }
 
-/* Nuevas animaciones para estrellas más detalladas */
 @keyframes starTwinkle {
   0%, 100% { opacity: 0.6; filter: brightness(1); }
   25% { opacity: 0.9; filter: brightness(1.3); }
@@ -77,13 +76,11 @@
   50% { opacity: 1; transform: scale(1.1); }
 }
 
-/* Efecto de brillo pulsante mejorado */
 @keyframes twinkle {
   0%, 100% { opacity: 0.3; }
   50% { opacity: 1; }
 }
 
-/* Partículas flotantes mejoradas */
 .stars-container {
   position: absolute;
   top: 0;
@@ -180,13 +177,12 @@
   50% { transform: translateY(-10px) scale(1.1); opacity: 1; }
 }
 
-/* Nueva animación de brillo para estrellas */
+
 @keyframes starGlow {
   0%, 100% { filter: brightness(1) drop-shadow(0 0 5px rgba(255,255,255,0.5)); }
   50% { filter: brightness(1.4) drop-shadow(0 0 10px rgba(255,255,255,0.8)); }
 }
 
-/* Contenedor principal - SIN efectos que distorsionen */
 .fb-container {
   position: relative;
   display: flex;
@@ -337,7 +333,6 @@ button:active {
   color: #e0e0e0;
 }
 
-/* Animaciones para alertas cósmicas */
 @keyframes slideIn {
   from {
     transform: translateX(100%);
@@ -360,7 +355,7 @@ button:active {
   }
 }
 
-/* Efectos de profundidad 3D */
+
 .fb-container {
   transform-style: preserve-3d;
   perspective: 1000px;
@@ -379,7 +374,7 @@ button:active {
   transform: rotateY(2deg) translateZ(10px);
 }
 
-/* Partículas de fondo adicionales */
+
 .cosmic-dust {
   position: absolute;
   width: 1px;
@@ -406,7 +401,6 @@ button:active {
   }
 }
 
-/* Efectos de galaxia espiral */
 .galaxy-spiral {
   position: absolute;
   top: 50%;
@@ -426,7 +420,6 @@ button:active {
   100% { transform: rotate(360deg) scale(1); }
 }
 
-/* Efectos de aurora boreal */
 .aurora {
   position: absolute;
   top: 0;
@@ -455,7 +448,6 @@ button:active {
   }
 }
 
-/* Efectos de resplandor para dispositivos móviles */
 @media (max-width: 768px) {
   .fb-container {
     margin: 20px;
@@ -480,7 +472,7 @@ button:active {
   }
 }
 
-/* Efectos de partículas flotantes mejoradas */
+
 @media (prefers-reduced-motion: no-preference) {
   .shooting-star {
     position: absolute;
@@ -573,7 +565,6 @@ button:active {
   }
 }
 
-/* Nebulosa de fondo */
 .nebula {
   position: absolute;
   top: 0;
@@ -590,7 +581,6 @@ button:active {
   50% { opacity: 0.6; transform: scale(1.1); }
 }
 
-/* Superposición de navegación mejorada */
 .nav-overlay {
   position: absolute;
   top: 0;

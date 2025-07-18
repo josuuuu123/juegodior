@@ -187,7 +187,6 @@ table tbody tr:hover {
   color: #aaa;
 }
 
-/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
   .snake-game {
     padding: 10px;

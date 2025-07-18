@@ -1,4 +1,13 @@
 <div class="fb-background">
+<div style="position: absolute; top: 24px; right: 24px; z-index: 1000;">
+  <audio id="register-audio" src="/music/register.m3u" autoplay loop></audio>
+  <div style="display: flex; gap: 10px; margin-top: 8px;">
+    <button class="btn-volumen-3d" onclick="document.getElementById('register-audio').volume=Math.min(document.getElementById('register-audio').volume+0.1,1)">🔊 +</button>
+    <button class="btn-volumen-3d" onclick="document.getElementById('register-audio').volume=Math.max(document.getElementById('register-audio').volume-0.1,0)">🔉 -</button>
+    <button class="btn-volumen-3d" onclick="document.getElementById('register-audio').muted=true">🔇</button>
+    <button class="btn-volumen-3d" onclick="document.getElementById('register-audio').muted=false">🔈</button>
+  </div>
+</div>
   <div class="nebula"></div>
 
   <div class="aurora"></div>

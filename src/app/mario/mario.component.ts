@@ -65,7 +65,7 @@ export class MarioComponent implements OnInit, OnDestroy {
     public platforms: Platform[] = [];
     public enemies: Enemy[] = [];
     public coins: Coin[] = [];
-    public checkpoints: { x: number, y: number }[] = []; // <-- Only x and y
+    public checkpoints: { x: number, y: number }[] = []; 
     public cameraX = 0;
     public keys: { [key: string]: boolean } = {};
     public worldWidth: number = 2000;

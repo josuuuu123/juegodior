@@ -1,0 +1,71 @@
+<div class="sparkles"></div>
+<div class="moda-header">
+  <h1 class="title">✨ Boutique de Moda Premium ✨</h1>
+  <button class="volver-btn" (click)="volverInicio()">Volver al inicio</button>
+</div>
+<div class="game-container">
+<div class="avatar-section">
+  <h2 class="subtitle" style="text-align:center;">Tu Avatar de Moda</h2>
+  <div class="avatar-card" style="background: #fff; border-radius: 18px; box-shadow: 0 4px 24px #d8b4b4; padding: 32px 24px; margin: 0 auto 40px auto; max-width: 600px; display: flex; justify-content: center; align-items: center;">
+    <div class="fashion-set" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;">
+      <div class="avatar" style="display: flex; flex-direction: column; align-items: center; position: relative; min-height: 400px; min-width: 220px;">
+        <div class="hair" style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 120px; height: 60px; background: linear-gradient(90deg, #eabfff 0%, #ff8fab 100%); border-radius: 60px 60px 40px 40px / 60px 60px 20px 20px; z-index: 20;"></div>
+        <div class="head" style="position: absolute; top: 40px; left: 50%; transform: translateX(-50%); width: 90px; height: 90px; background: #fff0f6; border-radius: 50%; box-shadow: 0 2px 8px #eabfff; z-index: 21; display: flex; flex-direction: column; align-items: center;">
+          <div class="face" style="position: relative; width: 90px; height: 90px;">
+            <div class="eye" style="position: absolute; top: 38px; left: 24px; width: 12px; height: 12px; background: #6c3483; border-radius: 50%;"></div>
+            <div class="eye" style="position: absolute; top: 38px; right: 24px; width: 12px; height: 12px; background: #6c3483; border-radius: 50%;"></div>
+          </div>
+          <div class="mouth" style="position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); width: 28px; height: 10px; border-radius: 0 0 14px 14px; background: #ff8fab; z-index: 22;"></div>
+        </div>
+        <div class="neck" style="position: absolute; top: 120px; left: 50%; transform: translateX(-50%); width: 24px; height: 30px; background: #ffe0e9; border-radius: 12px; z-index: 19;"></div>
+        <div class="arms" style="position: absolute; top: 130px; left: 50%; transform: translateX(-50%); width: 180px; height: 40px; z-index: 18;">
+          <div class="arm-left" style="position: absolute; left: 0; top: 0; width: 60px; height: 20px; background: #ffe0e9; border-radius: 20px 0 20px 20px; transform: rotate(-20deg);"></div>
+          <div class="arm-right" style="position: absolute; right: 0; top: 0; width: 60px; height: 20px; background: #ffe0e9; border-radius: 0 20px 20px 20px; transform: rotate(20deg);"></div>
+        </div>
+        <div class="dress">
+          <div class="dress-top" [style.background]="selectedDress !== null ? dresses[selectedDress].color : '#ff6b8b'" style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 120px; height: 100px; border-radius: 50% 50% 0 0; box-shadow: inset -5px -5px 10px rgba(0,0,0,0.1); z-index: 8;"></div>
+          <div class="dress-top" style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 50px; height: 50px; background: #ff8fab; clip-path: polygon(0 0, 100% 0, 50% 100%);"></div>
+          <div class="dress-top" style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 130px; height: 15px; background: #ff8fab; border-radius: 50%; z-index: 7;"></div>
+          <div class="dress-skirt" [style.background]="selectedDress !== null ? dresses[selectedDress].color : '#ff6b8b'" style="position: absolute; top: 90px; left: 50%; transform: translateX(-50%); width: 150px; height: 280px; border-radius: 100% 100% 0 0; overflow: hidden; z-index: 6;"></div>
+          <div class="dress-skirt" style="position: absolute; top: 90px; left: 50%; transform: translateX(-50%); width: 150px; height: 280px; background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%); transform: rotate(-20deg);"></div>
+          <div class="dress-skirt" style="position: absolute; top: 90px; left: 50%; transform: translateX(-50%); width: 150px; height: 280px; background: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.1) 50%, transparent 100%); transform: rotate(20deg);"></div>
+          <div class="dress-belt" [style.background]="selectedDress !== null ? dresses[selectedDress].color : '#d6336c'" style="position: absolute; top: 100px; left: 50%; transform: translateX(-50%); width: 140px; height: 12px; border-radius: 10px; z-index: 7; box-shadow: 0 2px 5px rgba(0,0,0,0.2);"></div>
+          <div class="dress-bow" [style.background]="selectedDress !== null ? dresses[selectedDress].color : '#d6336c'" style="position: absolute; top: 85px; left: 50%; transform: translateX(-50%) rotate(45deg); width: 30px; height: 30px; z-index: 8; border-radius: 50% 50% 0 50%;"></div>
+          <div class="dress-bow" style="position: absolute; top: 85px; left: 50%; transform: translateX(-50%) rotate(-45deg); width: 30px; height: 30px; background: #d6336c; border-radius: 50% 50% 50% 0;"></div>
+          <div class="dress-bow" style="position: absolute; top: 100px; left: 50%; transform: translateX(-50%); width: 15px; height: 15px; background: #ff8fab; border-radius: 50%; z-index: 9;"></div>
+          <div class="pearls" style="position: absolute; top: 35px; left: 50%; transform: translateX(-50%); width: 60px; height: 8px; display: flex; justify-content: space-between; z-index: 11;">
+            <div class="pearl" style="width: 6px; height: 6px; background: white; border-radius: 50%; box-shadow: 0 0 3px rgba(0,0,0,0.3);"></div>
+            <div class="pearl" style="width: 6px; height: 6px; background: white; border-radius: 50%; box-shadow: 0 0 3px rgba(0,0,0,0.3);"></div>
+            <div class="pearl" style="width: 6px; height: 6px; background: white; border-radius: 50%; box-shadow: 0 0 3px rgba(0,0,0,0.3);"></div>
+            <div class="pearl" style="width: 6px; height: 6px; background: white; border-radius: 50%; box-shadow: 0 0 3px rgba(0,0,0,0.3);"></div>
+            <div class="pearl" style="width: 6px; height: 6px; background: white; border-radius: 50%; box-shadow: 0 0 3px rgba(0,0,0,0.3);"></div>
+          </div>
+        </div>
+      </div>
+      <div class="purse" style="margin-top: 20px;">
+        <div class="purse-strap"></div>
+        <div class="purse-body"></div>
+        <div class="purse-flap"></div>
+        <div class="purse-detail"></div>
+        <div class="purse-button"></div>
+      </div>
+    </div>
+  </div>
+      <div class="clothes-section" style="flex: 0 0 auto; min-width: 260px;">
+        <div class="category" style="margin-bottom: 24px;">
+          <h3 style="margin-bottom: 10px;">👗 Vestidos de Diseñador</h3>
+          <div class="items-grid" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+            <button *ngFor="let dress of dresses; let i = index" class="item-btn" [ngClass]="[dress.class, selectedDress === i ? 'selected' : '']" (click)="selectDress(i)" style="min-width: 90px; padding: 8px 0; border-radius: 10px; font-weight: 500;">{{dress.nombre}}</button>
+          </div>
+        </div>
+        <div class="category">
+          <h3 style="margin-bottom: 10px;">🧢 Accesorios</h3>
+          <div class="items-grid" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+            <button *ngFor="let acc of accessories; let j = index" class="item-btn" [ngClass]="[acc.class, selectedAccessory === j ? 'selected' : '']" (click)="selectAccessory(j)" style="min-width: 90px; padding: 8px 0; border-radius: 10px; font-weight: 500;">{{acc.nombre}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   
+
