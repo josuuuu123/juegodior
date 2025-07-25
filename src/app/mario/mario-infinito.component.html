@@ -1,0 +1,36 @@
+<div id="gameContainer">
+    <button (click)="volver()" style="
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        z-index: 300;
+        background: linear-gradient(135deg, #e0e0ff 0%, #3f51b5 100%);
+        color: #fff;
+        font-weight: bold;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px #3f51b5bb;
+        padding: 12px 32px;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+    "
+    onmouseover="this.style.transform='scale(1.08)';this.style.boxShadow='0 12px 36px #3f51b5cc';"
+    onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 8px 32px #3f51b5bb';"
+    >⏪ Volver</button>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <div id="ui">
+        <div>Puntuación: <span id="score">0</span></div>
+        <div>Vidas: <span id="lives">3</span></div>
+        <div>Nivel: <span id="level">1</span></div>
+        <div id="distance">Distancia: 0m</div>
+    </div>
+    <div id="gameOver">
+        <h2>¡Juego Terminado!</h2>
+        <p>Puntuación Final: <span id="finalScore">0</span></p>
+        <button class="btn" onclick="restartGame()">Jugar de Nuevo</button>
+    </div>
+    <div id="controls">
+        Controles: A/D o ←/→ mover | W/↑/ESPACIO saltar | S o ↓ agacharse | ¡Muévete para empezar!
+    </div>
+</div>

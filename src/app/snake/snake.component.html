@@ -2,14 +2,10 @@
   <div style="position: absolute; top: 24px; right: 24px; z-index: 1000;">
     <audio id="snake-audio" src="/music/snake.mp3" autoplay loop></audio>
     <div style="display: flex; gap: 10px; margin-top: 8px;">
-      <button class="btn-volumen-3d"
-        onclick="document.getElementById('snake-audio').volume=Math.min(document.getElementById('snake-audio').volume+0.1,1)">🔊
-        +</button>
-      <button class="btn-volumen-3d"
-        onclick="document.getElementById('snake-audio').volume=Math.max(document.getElementById('snake-audio').volume-0.1,0)">🔉
-        -</button>
-      <button class="btn-volumen-3d" onclick="document.getElementById('snake-audio').muted=true">🔇</button>
-      <button class="btn-volumen-3d" onclick="document.getElementById('snake-audio').muted=false">🔈</button>
+      <button class="btn" onclick="document.getElementById('snake-audio').volume=Math.min(document.getElementById('snake-audio').volume+0.1,1)">🔊 +</button>
+      <button class="btn" onclick="document.getElementById('snake-audio').volume=Math.max(document.getElementById('snake-audio').volume-0.1,0)">🔉 -</button>
+      <button class="btn" onclick="document.getElementById('snake-audio').muted=true">🔇</button>
+      <button class="btn" onclick="document.getElementById('snake-audio').muted=false">🔈</button>
     </div>
   </div>
   <div class="game-header">

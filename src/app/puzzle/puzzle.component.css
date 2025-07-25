@@ -1,14 +1,35 @@
+/* --- 3D BUTTONS --- */
+.btn {
+  background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 6px 24px 0 #388e3c99, 0 1.5px 0 #fff4 inset, 0 1.5px 0 #0004;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+  font-family: "Courier New", monospace;
+  margin: 5px;
+  font-weight: bold;
+  perspective: 400px;
+}
+.btn:hover {
+  background: linear-gradient(135deg, #66ff99 0%, #388e3c 100%);
+  transform: translateY(-8px) scale(1.09) rotateX(18deg);
+  box-shadow: 0 16px 40px #388e3cbb, 0 2px 0 #fff4 inset, 0 2px 0 #0006;
+}
 .puzzle-game {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Courier New", monospace;
   background: transparent;
-  min-height: 100vh;
+  color: #e0e0e0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
   margin: 0;
   padding: 20px;
-  color: #e0e0e0;
   box-shadow: 0 0 40px 0 #000a;
   border-radius: 18px;
 }
@@ -52,9 +73,10 @@
 }
 
 .container {
-  background: rgba(20, 20, 30, 0.85);
-  border-radius: 16px;
-  box-shadow: 0 2px 16px #0006;
+  background: rgba(15, 15, 15, 0.92);
+  border-radius: 18px;
+  box-shadow: 0 8px 40px 0 #388e3c88, 0 0 80px #fff2 inset;
+  border: 2px solid #4caf50;
   padding: 30px;
   width: 90%;
   max-width: 500px;
@@ -66,8 +88,12 @@
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 5px;
   margin: 20px auto;
-  width: 300px;
-  height: 300px;
+  width: 320px;
+  height: 320px;
+  background-color: #0f0f0f;
+  border: 2px solid #4caf50;
+  box-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+  border-radius: 12px;
 }
 
 .tile {
@@ -77,7 +103,7 @@
   box-shadow: 0 4px 16px #388e3c88, 0 2px 0 #fff4 inset, 0 2px 0 #0006,
     0 0 12px #ffd70088;
   border-radius: 8px;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -88,15 +114,15 @@
 }
 
 .tile:hover {
-  transform: translateY(-8px) scale(1.08) rotateX(12deg);
-  box-shadow: 0 16px 32px #388e3cdd, 0 2px 0 #fff4 inset, 0 2px 0 #0008,
-    0 0 16px #4caf50cc;
+  transform: translateY(-8px) scale(1.09) rotateX(18deg);
+  box-shadow: 0 16px 40px #388e3cbb, 0 2px 0 #fff4 inset, 0 2px 0 #0006;
 }
 
 .empty {
   background-color: #e0e5ec;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
   cursor: default;
+  opacity: 0.7;
 }
 
 .game-info {
@@ -140,40 +166,40 @@
 
 .win-message,
 .lose-message {
-  font-size: 24px;
+  font-size: 32px;
   font-weight: bold;
-  margin: 20px 0;
+  margin: 24px 0;
   display: none;
+  text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
 }
 
 .win-message {
-  color: #2ecc71;
+  color: #4caf50;
 }
 
 .lose-message {
-  color: #e74c3c;
+  color: #f44336;
 }
 
 @media (max-width: 768px) {
   .puzzle-game {
     padding: 10px;
   }
-
   .game-header h1 {
     font-size: 2em;
   }
-
   .game-header {
     flex-direction: column;
     gap: 10px;
   }
-
   .puzzle-container {
     width: 250px;
     height: 250px;
   }
-
   .tile {
     font-size: 20px;
+  }
+  .win-message, .lose-message {
+    font-size: 24px;
   }
 }

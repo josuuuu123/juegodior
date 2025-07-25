@@ -1,3 +1,24 @@
+/* --- 3D BUTTONS --- */
+.btn {
+  background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 6px 24px 0 #388e3c99, 0 1.5px 0 #fff4 inset, 0 1.5px 0 #0004;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+  font-family: "Courier New", monospace;
+  margin: 5px;
+  font-weight: bold;
+  perspective: 400px;
+}
+.btn:hover {
+  background: linear-gradient(135deg, #66ff99 0%, #388e3c 100%);
+  transform: translateY(-8px) scale(1.09) rotateX(18deg);
+  box-shadow: 0 16px 40px #388e3cbb, 0 2px 0 #fff4 inset, 0 2px 0 #0006;
+}
 /* Letras 3D para controles */
 .control-3d-text {
   color: #4caf50;

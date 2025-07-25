@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -9,8 +9,44 @@ import { Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
-  constructor(private router: Router) { }
+export class HomeComponent implements OnInit, OnDestroy {
+  mostrarMario = false;
+  private routerSub: any;
+
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    this.checkMarioRoute();
+    this.routerSub = this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.checkMarioRoute();
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.routerSub) this.routerSub.unsubscribe();
+    // Solo eliminar el script, no el canvas ni el UI
+    const script = document.getElementById('mario-infinito-script');
+    if (script) script.remove();
+  }
+
+  private checkMarioRoute() {
+    const isMario = window.location.pathname.endsWith('/mario');
+    if (isMario && !this.mostrarMario) {
+      this.mostrarMario = true;
+      setTimeout(() => {
+        if (!document.getElementById('mario-infinito-script')) {
+          const script = document.createElement('script');
+          script.src = '/mario-infinito.component.js';
+          script.id = 'marido-infinito-script';
+          document.body.appendChild(script);
+        }
+      }, 0);
+    } else if (!isMario && this.mostrarMario) {
+      this.mostrarMario = false;
+    }
+  }
 
   juegos = [
     {

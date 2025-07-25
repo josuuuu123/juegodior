@@ -1,27 +1,19 @@
-<div>
-  <audio id="tetris-audio" src="/music/tetris.mp3" autoplay loop
-    style="position: absolute; top: 24px; right: 24px; z-index: 1000;"></audio>
-  <button class="btn-volumen-3d"
-    style="position: absolute; top: 24px; right: 80px; z-index: 1001; box-shadow: 0 4px 16px #4caf50bb; border-radius: 16px; background: linear-gradient(135deg, #e0ffe0 0%, #4caf50 100%); color: #1b3c1b; font-weight: 700; font-size: 1.2rem; padding: 10px 24px; margin-bottom: 4px;"
-    onclick="document.getElementById('tetris-audio').volume=Math.min(document.getElementById('tetris-audio').volume+0.1,1)">🔊
-    +</button>
-  <button class="btn-volumen-3d"
-    style="position: absolute; top: 24px; right: 130px; z-index: 1001; box-shadow: 0 4px 16px #4caf50bb; border-radius: 16px; background: linear-gradient(135deg, #e0ffe0 0%, #4caf50 100%); color: #1b3c1b; font-weight: 700; font-size: 1.2rem; padding: 10px 24px; margin-bottom: 4px;"
-    onclick="document.getElementById('tetris-audio').volume=Math.max(document.getElementById('tetris-audio').volume-0.1,0)">🔉
-    -</button>
-  <button class="btn-volumen-3d"
-    style="position: absolute; top: 24px; right: 180px; z-index: 1001; box-shadow: 0 4px 16px #4caf50bb; border-radius: 16px; background: linear-gradient(135deg, #e0ffe0 0%, #4caf50 100%); color: #1b3c1b; font-weight: 700; font-size: 1.2rem; padding: 10px 24px; margin-bottom: 4px;"
-    onclick="document.getElementById('tetris-audio').muted=true">🔇</button>
-  <button class="btn-volumen-3d"
-    style="position: absolute; top: 24px; right: 230px; z-index: 1001; box-shadow: 0 4px 16px #4caf50bb; border-radius: 16px; background: linear-gradient(135deg, #e0ffe0 0%, #4caf50 100%); color: #1b3c1b; font-weight: 700; font-size: 1.2rem; padding: 10px 24px; margin-bottom: 4px;"
-    onclick="document.getElementById('tetris-audio').muted=false">🔈</button>
-  <div class="game-header">
-    <button class="home-btn-3d" (click)="goHome()">← Volver al Inicio</button>
-    <h1
-      style="color: #4caf50; margin: 0; font-weight: 600; font-size: 2.5em; text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);">
-      Tetris</h1>
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 100vh; position: relative;">
+  <div style="width: 100%; display: flex; justify-content: space-between; align-items: flex-start; margin-top: 24px;">
+    <button class="home-btn-3d btn" style="margin-left: 24px; box-shadow: 0 4px 16px #4caf50bb; border-radius: 16px; background: linear-gradient(135deg, #e0ffe0 0%, #4caf50 100%); color: #1b3c1b; font-weight: 700; font-size: 1.2rem; padding: 10px 24px;" (click)="goHome()">← Volver al Inicio</button>
+    <div style="display: flex; flex-direction: column; align-items: center; flex: 1;">
+      <h1 style="color: #4caf50; margin: 0; font-weight: 600; font-size: 2.5em; text-shadow: 0 0 10px rgba(76, 175, 80, 0.5); text-align: center;">Tetris</h1>
+    </div>
+    <div style="margin-right: 24px; display: flex; flex-direction: column; align-items: flex-end;">
+      <audio id="tetris-audio" src="/music/tetris.mp3" autoplay loop></audio>
+      <div style="display: flex; gap: 10px; margin-top: 8px;">
+        <button class="btn" onclick="document.getElementById('tetris-audio').volume=Math.min(document.getElementById('tetris-audio').volume+0.1,1)">🔊 +</button>
+        <button class="btn" onclick="document.getElementById('tetris-audio').volume=Math.max(document.getElementById('tetris-audio').volume-0.1,0)">🔉 -</button>
+        <button class="btn" onclick="document.getElementById('tetris-audio').muted=true">🔇</button>
+        <button class="btn" onclick="document.getElementById('tetris-audio').muted=false">🔈</button>
+      </div>
+    </div>
   </div>
-</div>
 
 <div class="game-info">
   <div class="score">Puntaje: <span id="score">0</span></div>

@@ -1,39 +1,32 @@
-<div>
+<div style="display: flex; flex-direction: column; min-height: 100vh; justify-content: center; align-items: center; position: relative;">
   <div style="position: absolute; top: 24px; right: 24px; z-index: 1000;">
     <audio id="puzzle-audio" src="/music/puzzle.mp3" autoplay loop></audio>
     <div style="display: flex; gap: 10px; margin-top: 8px;">
-      <button class="btn-volumen-3d"
-        onclick="document.getElementById('puzzle-audio').volume=Math.min(document.getElementById('puzzle-audio').volume+0.1,1)">🔊
-        +</button>
-      <button class="btn-volumen-3d"
-        onclick="document.getElementById('puzzle-audio').volume=Math.max(document.getElementById('puzzle-audio').volume-0.1,0)">🔉
-        -</button>
-      <button class="btn-volumen-3d" onclick="document.getElementById('puzzle-audio').muted=true">🔇</button>
-      <button class="btn-volumen-3d" onclick="document.getElementById('puzzle-audio').muted=false">🔈</button>
+      <button class="btn" onclick="document.getElementById('puzzle-audio').volume=Math.min(document.getElementById('puzzle-audio').volume+0.1,1)">🔊 +</button>
+      <button class="btn" onclick="document.getElementById('puzzle-audio').volume=Math.max(document.getElementById('puzzle-audio').volume-0.1,0)">🔉 -</button>
+      <button class="btn" onclick="document.getElementById('puzzle-audio').muted=true">🔇</button>
+      <button class="btn" onclick="document.getElementById('puzzle-audio').muted=false">🔈</button>
     </div>
   </div>
-  <div class="game-header">
-    <button class="home-btn-3d" (click)="goHome()">← Volver al Inicio</button>
-    <h1
-      style="color: #4caf50; margin: 0; font-weight: 600; font-size: 2.5em; text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);">
-      Rompecabezas de Deslizamiento</h1>
+  <div class="game-header" style="margin-top: 48px; margin-bottom: 32px; gap: 32px;">
+    <button class="home-btn-3d btn" style="box-shadow: 0 4px 16px #4caf50bb; border-radius: 16px; background: linear-gradient(135deg, #e0ffe0 0%, #4caf50 100%); color: #1b3c1b; font-weight: 700; font-size: 1.3rem; padding: 12px 32px; text-shadow: 0 2px 8px #388e3c88; margin-right: 32px;" (click)="goHome()">← Volver al Inicio</button>
+    <h1 style="color: #4caf50; margin: 0; font-weight: 600; font-size: 2.5em; text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);">Rompecabezas de Deslizamiento</h1>
   </div>
-</div>
-
-<div class="container">
-  <div class="game-info">
-    <div class="moves">Movimientos: <span id="move-count">0</span></div>
-    <div class="timer">Tiempo: <span id="time">00:00</span></div>
-  </div>
-  <div class="puzzle-container">
-    <div *ngFor="let value of board; let i = index" class="tile" [ngClass]="{ empty: value === 0 }"
-      (click)="value !== 0 && gameActive ? moveTile(i, true) : null">
-      {{ value !== 0 ? value : "" }}
+  <div class="container" style="margin-top: 32px;">
+    <div class="game-info">
+      <div class="moves">Movimientos: <span id="move-count">0</span></div>
+      <div class="timer">Tiempo: <span id="time">00:00</span></div>
     </div>
+    <div class="puzzle-container">
+      <div *ngFor="let value of board; let i = index" class="tile" [ngClass]="{ empty: value === 0 }"
+        (click)="value !== 0 && gameActive ? moveTile(i, true) : null">
+        {{ value !== 0 ? value : "" }}
+      </div>
+    </div>
+    <div class="win-message">¡Has ganado! 🎉</div>
+    <div class="lose-message">
+      ¡Juego terminado! Has superado el límite de movimientos. 😞
+    </div>
+    <button class="reset-btn" (click)="resetGame()">Reiniciar Juego</button>
   </div>
-  <div class="win-message">¡Has ganado! 🎉</div>
-  <div class="lose-message">
-    ¡Juego terminado! Has superado el límite de movimientos. 😞
-  </div>
-  <button class="reset-btn" (click)="resetGame()">Reiniciar Juego</button>
 </div>

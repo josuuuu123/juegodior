@@ -6,8 +6,8 @@ import { TetrisComponent } from './tetris/tetris.component';
 import { PuzzleComponent } from './puzzle/puzzle.component';
 import { SnakeComponent } from './snake/snake.component';
 import { ParejasComponent } from './parejas/parejas.component';
-import { MarioComponent } from './mario/mario.component';
 import { ModaComponent } from './moda/moda.component';
+import { MarioInfinitoComponent } from './mario/mario-infinito.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/register', pathMatch: 'full' },
@@ -17,8 +17,10 @@ const routes: Routes = [
   { path: 'puzzle', component: PuzzleComponent },
   { path: 'snake', component: SnakeComponent },
   { path: 'parejas', component: ParejasComponent },
-  { path: 'mario', component: MarioComponent },
-  { path: 'moda', component: ModaComponent }
+  { path: 'moda', component: ModaComponent },
+  { path: 'mario', component: MarioInfinitoComponent }, 
+  
+
 ];
 
 export const appConfig: ApplicationConfig = {

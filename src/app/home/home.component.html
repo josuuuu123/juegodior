@@ -18,4 +18,24 @@
       <button class="game-button" (click)="iniciarJuego(juego.nombre)">Iniciar</button>
     </div>
   </div>
+
+  <ng-container *ngIf="mostrarMario">
+    <ng-container *ngIf="mostrarMario" [ngTemplateOutlet]="marioTemplate"></ng-container>
+    <ng-template #marioTemplate>
+      <div id="mario-infinito-container" style="display: flex; flex-direction: column; align-items: center; margin-top: 32px;">
+        <canvas id="gameCanvas" width="900" height="500" style="border: 4px solid #333; background: #b3e5fc; box-shadow: 0 8px 32px #1976d2bb; border-radius: 18px;"></canvas>
+        <div style="display: flex; gap: 24px; margin-top: 12px;">
+          <span id="score" style="font-size: 1.3rem; font-weight: bold; color: #1976d2;">0</span>
+          <span id="lives" style="font-size: 1.3rem; font-weight: bold; color: #388e3c;">3</span>
+          <span id="level" style="font-size: 1.3rem; font-weight: bold; color: #fbc02d;">1</span>
+          <span id="distance" style="font-size: 1.3rem; font-weight: bold; color: #6d4c41;">Distancia: 0m</span>
+        </div>
+        <div id="gameOver" style="display:none; margin-top: 24px; background: #fff3e0; border-radius: 12px; padding: 24px 36px; box-shadow: 0 4px 16px #ff9800bb; text-align: center;">
+          <h2 style="color: #d32f2f;">¡Game Over!</h2>
+          <p>Puntaje final: <span id="finalScore">0</span></p>
+          <button onclick="window.restartGame()" style="background: #1976d2; color: white; border: none; border-radius: 8px; padding: 10px 24px; font-size: 1.1rem; font-weight: bold; cursor: pointer;">Reintentar</button>
+        </div>
+      </div>
+    </ng-template>
+  </ng-container>
 </div>
